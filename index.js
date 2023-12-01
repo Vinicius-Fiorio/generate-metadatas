@@ -8,35 +8,35 @@ const artGenerator = new ArtEngine({
     outputPath: `${BASE_PATH}/output`,
 
     inputs: {
-        yuji: new inputs.ImageLayersInput({
-            assetsBasePath: `${BASE_PATH}/traits`
-        })
+      nome: new inputs.ImageLayersInput({
+        assetsBasePath: `${BASE_PATH}/traitsFluff`
+      })
     },
 
     generators: [
-        new generators.ImageLayersAttributesGenerator({
-            dataSet: "yuji",
-            startIndex: 1,
-            endIndex: 10
-        })
+      new generators.ImageLayersAttributesGenerator({
+        dataSet: "nome",
+        startIndex: 0,
+        endIndex: 10
+      })
     ],
 
     renderers: [
-        new renderers.ItemAttributesRenderer({
-            name: (id) => `Yuji #${id}`,
-            description: () => "This is a insane Yuji Samurai collection!"
-        }),
-        new renderers.ImageLayersRenderer({
-            height: 600,
-            width: 600
-        })
+      new renderers.ItemAttributesRenderer({
+        name: (id) => `Fluff #${id}`,
+        description: () => "fluff description"
+      }),
+      new renderers.ImageLayersRenderer({
+        height: 1200,
+        width: 1200
+      })
     ],
 
     exporters: [
-        new exporters.ImagesExporter(),
-        new exporters.Erc721MetadataExporter({
-            imageUriPrefix: "ipfs://BASE_PATH/",
-        })
+      new exporters.ImagesExporter(),
+      new exporters.Erc721MetadataExporter({
+        imageUriPrefix: "ipfs://BASE_PATH/",
+      })
     ]
 })
 
